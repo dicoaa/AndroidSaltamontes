@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="#F0F5FA"
+    android:orientation="vertical"
+    tools:context=".activities.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Registro de Estudiantes"
+            android:textAlignment="center"
+            android:textSize="30dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TableRow
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_weight="4"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Nombre"
+                        android:textSize="20sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/txtViewNombre"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="2"
+                        android:id="@+id/txtNombre"
+                        android:singleLine="true"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_weight="3.8"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Documento"
+                        android:textSize="20sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/txtViewDocumento"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/txtDocumento"
+                        android:layout_weight="2"
+                        android:singleLine="true"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_weight="4"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Edad"
+                        android:textSize="20sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/txtViewEdad"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="2"
+                        android:id="@+id/txtEdad"
+                        android:inputType="number"
+                        android:singleLine="true"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_weight="4"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Telefono"
+                        android:textSize="20sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/txtViewTelefono"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="2"
+                        android:id="@+id/txtTelefono"
+                        android:inputType="phone"
+                        android:singleLine="true"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_weight="4"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Direccion"
+                        android:textSize="20sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/txtViewDireccion"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="2"
+                        android:id="@+id/txtDireccion"
+                        android:singleLine="true"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Materia"
+                        android:textSize="20sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/txtViewPrimera"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:id="@+id/txtPrimeraMateria"
+                        android:hint="1ra Materia"
+                        android:singleLine="true"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1.5"
+                        android:id="@+id/txtPrimeraMateriaNota"
+                        android:hint="Nota"
+                        android:inputType="numberDecimal"/>
+
+                </TableRow>
+
+
+
+                <TableRow
+                    android:layout_marginTop="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Materia"
+                        android:textSize="20sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/txtViewSegunda"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:id="@+id/txtSegundaMateria"
+                        android:hint="2da Materia"
+                        android:singleLine="true"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1.5"
+                        android:id="@+id/txtSegundaMateriaNota"
+                        android:hint="Nota"
+                        android:inputType="numberDecimal"/>
+
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_marginTop="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Materia"
+                        android:textSize="20sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/txtViewTercera"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:id="@+id/txtTerceraMateria"
+                        android:hint="3ra Materia"
+                        android:singleLine="true"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1.5"
+                        android:id="@+id/txtTerceraMateriaNota"
+                        android:hint="Nota"
+                        android:inputType="numberDecimal"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Materia"
+                        android:textSize="20sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/txtViewCuarta"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:id="@+id/txtCuartaMateria"
+                        android:hint="4a Materia"
+                        android:singleLine="true"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1.5"
+                        android:id="@+id/txtCuartaMateriaNota"
+                        android:hint="Nota"
+                        android:inputType="numberDecimal"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Materia"
+                        android:textSize="20sp"
+                        android:textColor="#000"
+                        android:layout_marginLeft="20dp"
+                        android:id="@+id/txtViewQuinta"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:id="@+id/txtQuintaMateria"
+                        android:hint="5a Materia"
+                        android:singleLine="true"/>
+
+                    <EditText
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1.5"
+                        android:id="@+id/txtQuintaMateriaNota"
+                        android:hint="Nota"
+                        android:inputType="numberDecimal"/>
+
+                </TableRow>
+
+                <Button
+                    android:id="@+id/btnRegistrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Registrar"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <Button
+                    android:id="@+id/btnSalirRegistro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ir a Inicio"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
