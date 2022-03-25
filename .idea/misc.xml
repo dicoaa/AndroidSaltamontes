@@ -3,11 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/layout-land/activity_ayuda.xml" value="0.1" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/layout-land/activity_main.xml" value="0.1693121693121693" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/layout-land/activity_registro.xml" value="0.1693121693121693" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/layout-land/activity_splash.xml" value="0.1693121693121693" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/layout/activity_ayuda.xml" value="0.2" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/layout/activity_estadistica.xml" value="0.1859375" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/layout/activity_impresion.xml" value="0.165" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/layout/activity_registro.xml" value="0.165" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/layout/activity_splash_screen.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ColegioSaltamontes2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1535" />
       </map>
     </option>
   </component>

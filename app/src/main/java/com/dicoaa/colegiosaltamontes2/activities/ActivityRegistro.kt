@@ -86,10 +86,10 @@ class ActivityRegistro : AppCompatActivity() {
         var nombre = findViewById<EditText>(R.id.txtNombre).text.toString()
 
         var materiaUno =  findViewById<EditText>(R.id.txtPrimeraMateria).text.toString()
-        var materiaDos =  findViewById<EditText>(R.id.txtPrimeraMateria).text.toString()
-        var materiaTres =  findViewById<EditText>(R.id.txtPrimeraMateria).text.toString()
-        var materiaCuatro =  findViewById<EditText>(R.id.txtPrimeraMateria).text.toString()
-        var materiaCinco =  findViewById<EditText>(R.id.txtPrimeraMateria).text.toString()
+        var materiaDos =  findViewById<EditText>(R.id.txtSegundaMateria).text.toString()
+        var materiaTres =  findViewById<EditText>(R.id.txtTerceraMateria).text.toString()
+        var materiaCuatro =  findViewById<EditText>(R.id.txtCuartaMateria).text.toString()
+        var materiaCinco =  findViewById<EditText>(R.id.txtQuintaMateria).text.toString()
 
         // Se validan primero las notas, de lo contrario se cae el programa
 
