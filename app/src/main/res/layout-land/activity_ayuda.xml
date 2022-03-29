@@ -7,39 +7,68 @@
     android:orientation="vertical"
     tools:context=".activities.MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/txtAyuda"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
-            android:text="Ayuda"
-            android:textAlignment="center"
-            android:textSize="30dp" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/txtAyuda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Ayuda"
+                android:textAlignment="center"
+                android:textSize="30dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="bottom">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#3F51B5"
+                android:text="Boton Registro: Este boton permite registrar los datos personales del estudiante, asi como tambien, sus materias con el respectivo promedio. Al resgistrar el estudiante, se presentara su informacion con un mensaje donde se expresa si gana, recupera o pierde"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical"/>
 
-        <Button
-            android:id="@+id/btnSalirAyuda"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ir a Inicio"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#3F51B5"
+                android:text="Boton Estadistica: Este boton presenta la cantidad de estudiantes registrados, que han ganado, que pueden recuperar o que han perdido la materia"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="20dp" />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="Boton Ayuda: Este boton presenta textos con la descripcion de que puede hacer cada boton"
+                android:textColor="#3F51B5"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/btnSalirAyuda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ir a Inicio"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

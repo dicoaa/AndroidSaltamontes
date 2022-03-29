@@ -1,6 +1,8 @@
 package com.dicoaa.colegiosaltamontes2.clases
 
-class Materia(nombre:String, nota:Double) {
+import java.io.Serializable
+
+class Materia(nombre:String, nota:Double) : Serializable {
 
     var nombreMateria:String=nombre
     var promedioMateria:Double=nota
