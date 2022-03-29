@@ -8,35 +8,29 @@ import android.widget.TextView
 import com.dicoaa.colegiosaltamontes2.R
 
 class ActivityImpresion : AppCompatActivity() {
+    var btnInicio: Button? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_impresion)
 
         val campoMensaje = findViewById<TextView>(R.id.txtResultado)
+        val campoEstado = findViewById<TextView>(R.id.txtEstado)
         var miBundle:Bundle?=this.intent.extras
 
+         btnInicio = findViewById(R.id.btnSalir)
+
         if(miBundle!=null){
+           campoMensaje.text = "${miBundle.getSerializable("est")}"
 
-           campoMensaje.text = "${miBundle.getSerializable("est")}\n" +
-           "Ganadores: ${miBundle.getInt("ganadores")}\n" +
-                   "Recuperadores: ${miBundle.getInt("recuperadores")}\n" +
-                   "Perdedores: ${miBundle.getInt("perdedores")}"
+            if(miBundle.getString("estado")=="Aprobado"){
 
+            } else {
+                when (miBundle.getBoolean("poRecuperar")){
+                    true -> campoEstado?.setText("Tiene posibilidades de recuperar la materia")
+                    false -> campoEstado?.setText("No tiene posibilidades de recuperar la materia")
+                }
+            }
         }
-
-        val botonSalir: Button = findViewById(R.id.btnSalir)
-        botonSalir.setOnClickListener { onClick() }
-
-    }
-
-    private fun onClick() {
-        var miBundle: Bundle? = this.intent.extras
-        var intent = Intent(this, ActivityRegistro::class.java)
-        intent.putExtra("gana", miBundle?.getInt("ganadores"))
-        intent.putExtra("recupera", miBundle?.getInt("recuperadores"))
-        intent.putExtra("pierde", miBundle?.getInt("perdedores"))
-
-        startActivity(intent)
-
+        btnInicio?.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
     }
 }

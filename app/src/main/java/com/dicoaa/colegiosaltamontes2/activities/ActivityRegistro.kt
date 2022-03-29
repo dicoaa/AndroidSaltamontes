@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.dicoaa.colegiosaltamontes2.R
 import com.dicoaa.colegiosaltamontes2.clases.Estudiante
+import com.dicoaa.colegiosaltamontes2.clases.Globals
 import com.dicoaa.colegiosaltamontes2.clases.Operaciones
 
 class ActivityRegistro : AppCompatActivity() {
@@ -32,28 +33,17 @@ class ActivityRegistro : AppCompatActivity() {
     var campoCuatro: EditText? = null
     var campoCinco: EditText? = null
 
+    var estudiante: Estudiante? = null
     var operaciones: Operaciones? = null
 
-//    var pierde: Int = 0
-//    var gana: Int = 0
-//    var recupera: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-//        var operaciones: Operaciones? = null
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
 
 
-//        Esta linea se reemplaza por las dos siguientes para que pueda atarapar el bundle
-//        operaciones = Operaciones()
-
-        var bundle: Bundle? =this.intent.extras
-        operaciones= bundle?.getSerializable("operaciones") as Operaciones?
-
-
-        //Para atrapar el campo
+        operaciones = Globals.operaciones
 
         campoNombre = findViewById(R.id.txtNombre)
         campoDocumento = findViewById(R.id.txtDocumento)
@@ -74,21 +64,12 @@ class ActivityRegistro : AppCompatActivity() {
         campoCinco = findViewById(R.id.txtQuintaMateriaNota)
 
 
-        val btnInicio : Button = findViewById(R.id.btnSalirRegistro)
-        btnInicio.setOnClickListener { salir() }
-
         val btnRegistrar: Button = findViewById(R.id.btnRegistrar)
         btnRegistrar.setOnClickListener { validarDatos() }
-
-    }
-
-    private fun salir() {
-        startActivity(Intent(this, MainActivity::class.java))
     }
 
     private fun validarDatos() {
 
-        operaciones = Operaciones()
         // Para hacer validaciones y pasar datos a string
 
         var campoPrimeraNota = findViewById<EditText>(R.id.txtPrimeraMateriaNota).text.toString()
@@ -205,126 +186,55 @@ class ActivityRegistro : AppCompatActivity() {
         notaCuatro: Double,
         notaCinco: Double
     ) {
-        var est: Estudiante = Estudiante()
+        estudiante = Estudiante()
 
-//        con este bundle se juega al ping pong con la funcion onClick de la clase ActivityImpresion
-        var bundle: Bundle? = this.intent.extras
+        estudiante?.documento= campoDocumento?.text.toString()
+        estudiante?.nombre= campoNombre?.text.toString()
+        estudiante?.edad= campoEdad?.text.toString().toInt()
+        estudiante?.direccion= campoDireccion?.text.toString()
+        estudiante?.telefono= campoTelefono?.text.toString()
 
-        est.documento= campoDocumento?.text.toString()
-        est.nombre= campoNombre?.text.toString()
-        est.edad= campoEdad?.text.toString().toInt()
-        est.direccion= campoDireccion?.text.toString()
-        est.telefono= campoTelefono?.text.toString()
+        estudiante?.materia1= campoMateria1?.text.toString()
+        estudiante?.materia2= campoMateria2?.text.toString()
+        estudiante?.materia3= campoMateria3?.text.toString()
+        estudiante?.materia4= campoMateria4?.text.toString()
+        estudiante?.materia5= campoMateria5?.text.toString()
 
-        est.materia1= campoMateria1?.text.toString()
-        est.materia2= campoMateria2?.text.toString()
-        est.materia3= campoMateria3?.text.toString()
-        est.materia4= campoMateria4?.text.toString()
-        est.materia5= campoMateria5?.text.toString()
+        estudiante?.nota1=notaUno
+        estudiante?.nota2=notaDos
+        estudiante?.nota3=notaTres
+        estudiante?.nota4=notaCuatro
+        estudiante?.nota5=notaCinco
 
-        est.nota1=notaUno
-        est.nota2=notaDos
-        est.nota3=notaTres
-        est.nota4=notaCuatro
-        est.nota5=notaCinco
+        estudiante?.promedio = operaciones!!.calcularPromedio(estudiante!!)
 
-
-        var contPierde: Int = 0
-        var contGana: Int = 0
-        var contRecupera: Int = 0
-        var mensaje: String = ""
-
-        var prom=(est.nota1+est.nota2+est.nota3+est.nota4+est.nota5)/5
-        est.promedio = prom
-
-        if(prom <= 2.5){
-            contPierde += 1
-            mensaje = "Usted mi pierde el periodo"
-            Log.i("Recupera", bundle?.getInt("perdedores").toString())
-        } else if (prom < 3.5) {
-            contRecupera += 1
-            mensaje = "Usted puede recuperar periodo"
-//            Log.i("Pierde", "$contRecupera")
-            Log.i("Recupera", bundle?.getInt("ganadores").toString())
+        if((estudiante!!.promedio) >= 3.5){
+            estudiante?.estado = "Aprobado"
         } else {
-            contGana += 1
-            mensaje = "Usted gana la materia"
-            Log.i("Gana", bundle?.getInt("gana").toString())
+            estudiante?.estado = "Reprobado"
         }
 
+        if (estudiante!!.promedio >= 2.5){
+            if (estudiante!!.promedio >= 3.5) {
+                estudiante?.poRecuperar = false
+            } else {
+                estudiante?.poRecuperar = true
+            }
+        } else {
+            estudiante?.poRecuperar = false
+        }
 
-        contGana += bundle?.getInt("gana")!!.toInt()
-        contRecupera += bundle?.getInt("recupera")!!.toInt()
-        contPierde += bundle?.getInt("pierde")!!.toInt()
-
-
-        est.pierde = contPierde
-        est.recupera = contRecupera
-        est.gana = contGana
-        est.conclusion = mensaje
-
-//        return prom
-//        est.promedio = operaciones!!.calcularPromedio(est)
-        operaciones?.registrarEstudiante(est)
+        operaciones?.registrarEstudiante(estudiante!!)
         operaciones?.imprimirListaEstudiantes()
-//        limpiarCampos()
 
-        //putSerializable es para enviar objetos
-
-//        val miBundle:Bundle=Bundle()
-//        miBundle.putSerializable("est", est)
-//        intent.putExtras(miBundle)
-        intent = Intent(this, ActivityImpresion::class.java)
-        intent.putExtra("ganadores", contGana)
-        intent.putExtra("recuperadores", contRecupera)
-        intent.putExtra("perdedores", contPierde)
+        val miBundle: Bundle = Bundle()
+        miBundle.putString("estado", estudiante?.estado)
+        miBundle.putBoolean("poRecuperar", estudiante!!.poRecuperar)
+        miBundle.putSerializable("est", estudiante)
+        val intent = Intent (this, ActivityImpresion::class.java)
+        intent.putExtras(miBundle)
         startActivity(intent)
+
     }
-
-
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if (keyCode==KeyEvent.KEYCODE_BACK){
-
-            Toast.makeText(this, "Se cierra el registro Activity", Toast.LENGTH_SHORT).show()
-            devolverResultados()
-//            No se finaliza para no tener que darle tanto atras, me tiene q cerrar muchas
-        //            veces dependiendo de la cantidad de estudiantes que se hayan registrado
-//            finish()
-            startActivity(Intent(this, MainActivity::class.java))
-        }
-        return super.onKeyDown(keyCode, event)
-    }
-
-    private fun devolverResultados(){
-        var miIntent: Intent = Intent()
-        miIntent.putExtra("resultado","Registro exitoso")
-        var miBundle:Bundle= Bundle()
-        miBundle.putSerializable("objetoOperaciones",operaciones)
-        miIntent.putExtras(miBundle)
-        //miIntent.putExtra("obj",operaciones)
-        setResult(RESULT_OK,miIntent)
-    }
-
-
-//    private fun limpiarCampos() {
-//
-//        campoNombre?.setText("")
-//        campoDocumento?.setText("")
-//        campoEdad?.setText("")
-//        campoTelefono?.setText("")
-//        campoDireccion?.setText("")
-//
-//        campoMateria1?.setText("")
-//        campoMateria2?.setText("")
-//        campoMateria3?.setText("")
-//        campoMateria4?.setText("")
-//        campoMateria5?.setText("")
-//
-//        campoUno?.setText("")
-//        campoDos?.setText("")
-//        campoTres?.setText("")
-//        campoCuatro?.setText("")
-//        campoCinco?.setText("")
-//    }
 
 }
